@@ -6,11 +6,6 @@ export interface IUser extends mongoose.Document {
     username: string;
     password: string;
     admin: boolean;
-    timezone: string;
-    meta: {
-        birth_date: Date,
-        website: string
-    };
     comparePassword(candidatePassword: string): Boolean;
 };
 
@@ -25,15 +20,7 @@ export const schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    admin: Boolean,
-    timezone: {
-        type: String,
-        required: true
-    },
-    meta: {
-        birth_date: Date,
-        website: String
-    }
+    admin: Boolean
 }, {timestamps: { createdAt: "created_at", updatedAt: "updated_at" }});
 
 schema.pre("save", function(next) {
