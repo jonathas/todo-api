@@ -1,0 +1,60 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/api/bin/server.js",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}/api/bin",
+            "preLaunchTask": null,
+            "runtimeExecutable": "/home/jon/.nvm/versions/node/v6.9.2/bin/node",
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "test"
+            },
+            "console": "internalConsole",
+            "sourceMaps": false,
+            "outFiles": []
+        },
+        {
+            "name": "Attach",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": false,
+            "sourceMaps": false,
+            "outFiles": [],
+            "localRoot": "${workspaceRoot}/api/bin",
+            "remoteRoot": null
+        },
+        {
+            "name": "Attach to Process",
+            "type": "node",
+            "request": "attach",
+            "processId": "${command.PickProcess}",
+            "port": 5858,
+            "sourceMaps": true,
+            "outFiles": []
+        },
+        {
+            "name": "Run mocha",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/api/node_modules/mocha/bin/_mocha",
+            "stopOnEntry": false,
+            "args": ["--no-timeouts", "--colors"],
+            "cwd": "${workspaceRoot}/api",
+            "runtimeExecutable": "/home/jon/.nvm/versions/node/v6.9.2/bin/node",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceRoot}/api/bin/**"
+            ],
+            "env": { "NODE_ENV": "test" }
+        }
+    ]
+}

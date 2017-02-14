@@ -9,6 +9,7 @@
         "start": "nodemon bin/server.js"
     },
     "dependencies": {
+        "bcryptjs": "^2.4.3",
         "bluebird": "^3.4.7",
         "chai": "^3.5.0",
         "express": "^4.14.1",
@@ -19,6 +20,7 @@
         "passport-jwt": "^2.2.1"
     },
     "devDependencies": {
+        "@types/bcryptjs": "^2.4.0",
         "@types/express": "^4.0.35",
         "@types/jwt-simple": "^0.5.32",
         "@types/mocha": "^2.2.39",
@@ -30,9 +32,9 @@
         "gulp-sourcemaps": "^2.4.1",
         "gulp-typescript": "^3.1.4",
         "istanbul": "1.0.0-alpha.2",
+        "mocha": "^3.2.0",
         "supertest": "^3.0.0",
         "tslint": "^4.4.2",
-        "typescript": "^2.1.6",
-        "mocha": "^3.2.0"
+        "typescript": "^2.1.6"
     }
 }

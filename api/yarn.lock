@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/bcryptjs@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@types/bcryptjs/-/bcryptjs-2.4.0.tgz#6b78a7c4fdbc1e2f1b5b53d9ed00b9d88c377604"
+
 "@types/bluebird@~3.0.36":
   version "3.0.37"
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.0.37.tgz#2e76b394aa9bea40d04241a31c0887a260283388"
@@ -285,6 +289,10 @@ balanced-match@^0.4.1:
 base64url@2.0.0, base64url@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/base64url/-/base64url-2.0.0.tgz#eac16e03ea1438eff9423d69baa36262ed1f70bb"
+
+bcryptjs@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
 
 beeper@^1.0.0:
   version "1.1.1"
