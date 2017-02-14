@@ -9,6 +9,7 @@
         "start": "nodemon bin/server.js"
     },
     "dependencies": {
+        "bluebird": "^3.4.7",
         "chai": "^3.5.0",
         "express": "^4.14.1",
         "express-validator": "^3.1.2",
