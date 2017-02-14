@@ -1,0 +1,36 @@
+# Docker for production
+version: "2"
+services:
+    web:
+        network_mode: host
+        extends:
+            file: docker-common.yml
+            service: web
+        depends_on:
+            - db
+            - cache
+        environment:
+            - NODE_ENV=production
+            - PASSENGER_APP_ENV=production
+
+    db:
+        image: mongo
+        volumes:
+            - "./mongo_data:/data/db"
+        network_mode: host
+
+    cache:
+        build: redis
+        network_mode: host
+
+# I had to use the local network, otherwise net.core.somaxconn value is started as very low 
+# inside the containers and /proc mounted as read-only and we're not able to change it.
+# If we use the local network here instead of letting docker create and use it's own, 
+# it inherits net.core.somaxconn from the host OS. Docker itself has a --sysctl param option,
+# that allows us to set this property inside a container, but docker-compose still didn't
+# implement that. Because of that, I chose to bind all to the host network and block
+# some service ports on the host OS with iptables. - Jon Ribeiro, 20161203
+networks:
+    default:
+        external:
+            name: "host"
