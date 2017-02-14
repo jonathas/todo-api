@@ -1,0 +1,28 @@
+{
+    "name": "jon-todo",
+    "description": "Another todo list software",
+    "version": "0.0.1",
+    "main": "server.js",
+    "license": "GPL-3.0",
+    "author": "Jon Ribeiro <contact@jonathas.com>",
+    "scripts": {
+        "start": "nodemon bin/server.js"
+    },
+    "dependencies": {
+        "chai": "^3.5.0",
+        "express": "^4.14.1",
+        "express-validator": "^3.1.2",
+        "gulp": "^3.9.1",
+        "gulp-apidoc": "^0.2.5",
+        "gulp-sourcemaps": "^2.4.1",
+        "gulp-typescript": "^3.1.4",
+        "istanbul": "1.0.0-alpha.2",
+        "mocha": "^3.2.0",
+        "mongoose": "^4.8.2",
+        "passport": "^0.3.2",
+        "passport-jwt": "^2.2.1",
+        "supertest": "^3.0.0",
+        "tslint": "^4.4.2",
+        "typescript": "^2.1.6"
+    }
+}
