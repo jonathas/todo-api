@@ -7,6 +7,7 @@ class Tasks {
             const tasks = await Task.find({}).exec();
             res.status(200).json(tasks);
         } catch (err) {
+            /* istanbul ignore next */
             res.status(400).json(err);
         } 
     }
@@ -25,19 +26,28 @@ class Tasks {
         }
     }
 
-    public create = (req, res) => {
+    public create = async (req, res) => {
         try {
-            
+            this.validateRequest(req);
+
+            let Data = new Task(req.body);
+            await Data.save();
+
+            res.status(201).json({ "message": "Task saved successfully!", "id": Data._id });
         } catch (err) {
-            res.status(err.status).json({ message: err.message, errors: err.errors });
+            res.status(400).json({ "message": "Missing parameters", errors: err });
         }
     }
 
-    public update = (req, res) => {
+    public update = async (req, res) => {
         try {
-            
+            this.validateRequest(req);
+
+            await Task.findByIdAndUpdate(req.params.id, req.body);
+
+            res.status(200).json({ "message": "Task updated successfully!" });
         } catch (err) {
-            res.status(err.status).json({ message: err.message, errors: err.errors });
+            res.status(400).json({ "message": "Missing parameters", errors: err });
         }
     }
 
@@ -45,7 +55,7 @@ class Tasks {
         req.checkBody("name", "The name cannot be empty").notEmpty();
 
         let errors = req.validationErrors();
-        if (errors) throw { status: 400, message: "Missing parameters", errors: errors };
+        if (errors) throw errors;
     }
 
     public delete = async (req, res) => {

@@ -35,7 +35,7 @@ class Auth {
             let errors = req.validationErrors();
             if (errors) throw errors;
 
-            let user = await User.findOne({ "username": req.body.username });
+            let user = await User.findOne({ "username": req.body.username }).exec();
 
             if (user === null) throw "User not found";
 

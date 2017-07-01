@@ -1,0 +1,40 @@
+version: "2"
+services:
+    proxy:
+        build: nginx
+        container_name: todo_proxy
+        volumes:
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./nginx/sites-available/default:/etc/nginx/conf.d/default.conf
+            - /var/log/nginx:/var/log/nginx
+        depends_on: 
+            - web
+        ports:
+            - 80:80
+        network_mode: host
+        
+    web:
+        build: pm2
+        container_name: todo_web
+        volumes:
+            - ../api:/app
+        ports:
+            - 3000:3000
+        environment:
+            - NODE_ENV=test
+        command: "pm2-dev start --auto-exit --env test process.yml"
+        depends_on:
+            - db
+        network_mode: host
+
+    db:
+        image: mongo:3.4.2
+        container_name: todo_db
+        volumes:
+            - "./mongo_data:/data/db"
+        network_mode: host
+
+networks:
+    default:
+        external:
+            name: "host"

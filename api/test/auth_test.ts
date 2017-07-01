@@ -22,10 +22,15 @@ describe("# Auth", () => {
     it("should return invalid credentials error", () => {
         return request.post(endpoint)
             .send({ "username": "testuser", "password": "" })
-            .expect(401);
+            .expect(401)
+            .then(res => {
+                return request.post(endpoint)
+                    .send({ "username": "anotherusername", "password": "mypass" })
+                    .expect(401);
+            });
     });
 
-    it("should return token expired message", () => {
+    it.skip("should return token expired message", () => {
         return request.post(process.env.API_BASE + "tasks")
             .set("Authorization", "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzM2NjYyOTIsInVzZXJuYW1lIjoiaW5mb0BtYXV0aWx1cy5jb20ifQ.zH5Vfdcy7a3iSnVZcqGHNvcWwgvhFh1_n8uMvFr5Dl8")
             .send({

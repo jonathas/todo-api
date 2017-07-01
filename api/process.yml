@@ -1,0 +1,9 @@
+apps:
+  - script   : bin/server.js
+    name     : todo
+    instances: 0 # 0 = auto
+    exec_mode: cluster
+    env:
+     NODE_ENV: test
+    env_production:
+     NODE_ENV: production
