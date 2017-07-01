@@ -2,7 +2,7 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
-    "command": "/home/jon/.nvm/versions/node/v6.9.2/bin/tsc",
+    "command": "/home/jon/.nvm/versions/node/v8.1.3/bin/tsc",
     "isShellCommand": true,
     "args": ["-p", "./api"],
     "showOutput": "silent",
