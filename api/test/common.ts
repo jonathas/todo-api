@@ -30,7 +30,7 @@ const getUser = async (): Promise<any> => {
 
 export const login = async (): Promise<any> => {
     let user = await getUser();
-    return request.post("login")
+    return request.post(process.env.API_BASE + "login")
         .send({ "username": user.username, "password": testUser.password })
         .expect(200);
 };

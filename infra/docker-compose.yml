@@ -22,6 +22,7 @@ services:
             - 3000:3000
         depends_on:
             - db
+        network_mode: host
 
     db:
         image: mongo:3.4.2
