@@ -1,7 +1,7 @@
 version: "2"
 services:
     proxy:
-        build: ../common/nginx
+        build: nginx
         container_name: todo_proxy
         volumes:
             - ./nginx/nginx.conf:/etc/nginx/nginx.conf
