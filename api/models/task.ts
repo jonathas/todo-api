@@ -24,6 +24,6 @@ export const schema = new mongoose.Schema({
 
 export const model = mongoose.model<ITask>("Task", schema);
 
-export const cleanCollection = (callback) => model.remove({}, callback);
+export const cleanCollection = (): Promise<any> => model.remove({}).exec();
 
 export default model;

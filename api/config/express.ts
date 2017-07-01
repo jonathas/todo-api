@@ -23,8 +23,7 @@ export = () => {
     app.use(auth.initialize());
 
     app.all(process.env.API_BASE + "*", (req, res, next) => {
-        if (req.path.includes(process.env.API_BASE + "clients") ||
-        req.path.includes(process.env.API_BASE + "login")) return next();
+        if (req.path.includes(process.env.API_BASE + "login")) return next();
 
         return auth.authenticate((err, user, info) => {
             if (err) { return next(err); }

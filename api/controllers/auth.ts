@@ -1,8 +1,8 @@
 import * as jwt from "jwt-simple";
 import * as passport from "passport";
 import * as moment from "moment";
-import {Strategy, ExtractJwt} from "passport-jwt";
-import {model as User, IUser} from "../models/user";
+import { Strategy, ExtractJwt } from "passport-jwt";
+import { model as User, IUser } from "../models/user";
 
 class Auth {
 
@@ -11,7 +11,7 @@ class Auth {
         return passport.initialize();
     }
 
-    public authenticate = (callback) => passport.authenticate("jwt", {session: process.env.JWT_CONFIG_SESSION, failWithError: process.env.JWT_CONFIG_SESSION_FAILWITHERROR}, callback)
+    public authenticate = (callback) => passport.authenticate("jwt", { session: false, failWithError: true }, callback);
 
     private genToken = (user: IUser): Object => {
         let expires = moment().utc().add({ days: 7 }).unix();
@@ -27,7 +27,7 @@ class Auth {
         };
     }
 
-    public login = (req, res) => {
+    public login = async (req, res) => {
         try {
             req.checkBody("username", "Invalid username").notEmpty();
             req.checkBody("password", "Invalid password").notEmpty();
@@ -35,18 +35,14 @@ class Auth {
             let errors = req.validationErrors();
             if (errors) throw errors;
 
-            /* istanbul ignore next */
-            let genToken = this.genToken;
-            User.findOne({ "username": req.body.username }, (err, user) => {
-                /* istanbul ignore next: exception catching already tested for throw above */
-                if (err) throw err;
+            let user = await User.findOne({ "username": req.body.username });
 
-                if (user === null || !user.comparePassword(req.body.password)) {
-                    return res.status(401).json({ "message": "Invalid credentials" });
-                }
+            if (user === null) throw "User not found";
 
-                res.status(200).json(genToken(user));
-            });
+            let success = await user.comparePassword(req.body.password);
+            if (success === false) throw "";
+
+            res.status(200).json(this.genToken(user));
         } catch (err) {
             res.status(401).json({ "message": "Invalid credentials", "errors": err });
         }
@@ -70,7 +66,7 @@ class Auth {
                     return done(null, false, { message: "The user in the token was not found" });
                 }
 
-                return done(null, { username: user.username, timezone: user.timezone });
+                return done(null, { username: user.username });
             });
         });
     }
