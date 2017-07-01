@@ -26,15 +26,26 @@ class Tasks {
     }
 
     public create = (req, res) => {
-
+        try {
+            
+        } catch (err) {
+            res.status(err.status).json({ message: err.message, errors: err.errors });
+        }
     }
 
     public update = (req, res) => {
-
+        try {
+            
+        } catch (err) {
+            res.status(err.status).json({ message: err.message, errors: err.errors });
+        }
     }
 
     private validateRequest = (req) => {
+        req.checkBody("name", "The name cannot be empty").notEmpty();
 
+        let errors = req.validationErrors();
+        if (errors) throw { status: 400, message: "Missing parameters", errors: errors };
     }
 
     public delete = async (req, res) => {
