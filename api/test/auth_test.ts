@@ -30,9 +30,9 @@ describe("# Auth", () => {
             });
     });
 
-    it.skip("should return token expired message", () => {
+    it("should return token expired message", () => {
         return request.post(process.env.API_BASE + "tasks")
-            .set("Authorization", "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzM2NjYyOTIsInVzZXJuYW1lIjoiaW5mb0BtYXV0aWx1cy5jb20ifQ.zH5Vfdcy7a3iSnVZcqGHNvcWwgvhFh1_n8uMvFr5Dl8")
+            .set("Authorization", "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTg5Mzk1MTksInVzZXJuYW1lIjoidGVzdHVzZXIifQ.FUJcVCzZTkjDr62MCJj5gvCFvmxewmz2jotiknuVbOg")
             .send({
                 name: "Do the dishes"
             })
