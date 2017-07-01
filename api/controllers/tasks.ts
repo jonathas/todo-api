@@ -53,6 +53,7 @@ class Tasks {
 
     private validateRequest = (req) => {
         req.checkBody("name", "The name cannot be empty").notEmpty();
+        req.body.user = req.app.get("user")._id;
 
         let errors = req.validationErrors();
         if (errors) throw errors;
