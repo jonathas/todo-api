@@ -1,5 +1,7 @@
 # TODO List API
 
+[![Build Status](https://travis-ci.org/jonathas/todo-api.svg?branch=master)](https://travis-ci.org/jonathas/todo-api) [![Coverage Status](https://coveralls.io/repos/github/jonathas/todo-api/badge.svg?branch=master)](https://coveralls.io/github/jonathas/todo-api?branch=master)
+
 This is a todo list API I decided to develop in order to show a little bit of what I can currently do with Node.js and related technologies.
 
 Here I'm using Node.js with Express, TypeScript, MongoDB and Docker.
