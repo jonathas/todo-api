@@ -26,7 +26,7 @@ Install [Docker](https://www.docker.com/) and docker-compose. If you use Windows
 
 Enter the api directory and run:
 ```bash
-$ gulp
+$ yarn install && gulp
 ```
 
 Then go back to the root of the project, enter the infra directory and:
@@ -43,16 +43,11 @@ If you need to run pm2 in development mode so it reloads after every code change
 $ docker-compose -f docker-dev.yml up
 ```
 
-If all works fine we can now run some tests.
-
 ## Testing and checking code coverage report
 
-Inside the api directory, first install all the necessary packages:
-```bash
-$ yarn install
-```
+In order to test, you need to have the packages installed and infra running (previous step).
 
-Then run the following command:
+After that is done, run the following command:
 ```bash
 $ npm test
 ```
