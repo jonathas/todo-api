@@ -23,7 +23,13 @@ This will generate the documentation for the API inside docs/apidoc.
 ## Running the infrastructure with Docker
 
 Install [Docker](https://www.docker.com/) and docker-compose. If you use Windows, click on the icon that will appear on your tray and [enable Shared Drives](https://docs.docker.com/docker-for-windows/#general).
-Enter the infra directory and:
+
+Enter the api directory and run:
+```bash
+$ gulp
+```
+
+Then go back to the root of the project, enter the infra directory and:
 ```bash
 $ docker-compose up
 ```
