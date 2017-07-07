@@ -7,7 +7,7 @@
     "author": "Jon Ribeiro <contact@jonathas.com>",
     "scripts": {
         "pretest": "gulp",
-        "test": "istanbul cover --report cobertura --report lcov node_modules/mocha/bin/_mocha",
+        "test": "istanbul cover node_modules/mocha/bin/_mocha",
         "prestart": "gulp",
         "start": "nodemon bin/server.js"
     },
