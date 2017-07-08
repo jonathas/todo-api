@@ -48,6 +48,8 @@ jspm_packages
 bin
 .config
 .yarnclean
+.vscode
+dump
 
 *.swp
 .~lock*
