@@ -1,4 +1,4 @@
-before_script: cd api && yarn install
+before_script: cd api && npm install
 language: node_js
 node_js:
         - "8"
