@@ -54,6 +54,3 @@ $ npm test
 
 This command will use gulp to transpile the typescript files to the api/bin directory, then mocha to run the tests and istanbul to generate the code coverage report.
 After all is done, you will find the report inside api/coverage/lcov-report/index.html
-
-## TODO
-- Implement user management
