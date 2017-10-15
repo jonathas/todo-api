@@ -24,7 +24,7 @@ const getUser = async (): Promise<any> => {
         await createUser();
         return await getUser();
     } else {
-        return new Promise((resolve, reject) => resolve(users[0]));
+        return users[0];
     }
 };
 

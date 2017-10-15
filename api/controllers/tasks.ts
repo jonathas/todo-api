@@ -9,7 +9,7 @@ class Tasks {
         } catch (err) {
             /* istanbul ignore next */
             res.status(400).json(err);
-        } 
+        }
     }
 
     public getOne = async (req, res) => {

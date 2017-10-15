@@ -24,7 +24,7 @@ export = (app) => {
     *   .error((err, status) => doSomethingHere());
     *
     * @apiSuccess (Success 201) {String} message Task saved successfully!
-    * @apiSuccess (Success 201) {String} id The campaign id
+    * @apiSuccess (Success 201) {String} id The task id
     *
     * @apiSuccessExample {json} Success response:
     *     HTTPS 201 OK
