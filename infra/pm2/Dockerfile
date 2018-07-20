@@ -1,4 +1,4 @@
-FROM keymetrics/pm2-docker-alpine:8
+FROM keymetrics/pm2:8-alpine
 MAINTAINER Jon Ribeiro <contact@jonathas.com>
 
 RUN apk update && apk add tzdata &&\ 
