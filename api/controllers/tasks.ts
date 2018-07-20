@@ -1,4 +1,4 @@
-import { ITask, model as Task } from "../models/task";
+import Task from "../models/task";
 
 class Tasks {
 
