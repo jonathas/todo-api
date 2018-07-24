@@ -1,5 +1,5 @@
 FROM keymetrics/pm2:8-alpine
-MAINTAINER Jon Ribeiro <contact@jonathas.com>
+LABEL maintainer="Jon Ribeiro <contact@jonathas.com>"
 
 WORKDIR /app
 
