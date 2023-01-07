@@ -22,7 +22,7 @@ Let me list below what I would do different if this was done today:
 - bluebird is not needed anymore
 - pino instead of winston
 
-Truth be told, nowadays I'd recommend to start an API in Node.js using [Nest](https://nestjs.com/), which already gives you a well implemented architecture to start your project. So I might be creating a similar project soon, but using Nest instead, and then we can compare the differences.
+Truth be told, nowadays I'd recommend to start an API in Node.js using [Nest](https://nestjs.com/), which already gives you a well implemented architecture to start your project with. So I might be creating a similar project soon, but using Nest instead, and then we can compare the differences.
 
 ## Intro
 
